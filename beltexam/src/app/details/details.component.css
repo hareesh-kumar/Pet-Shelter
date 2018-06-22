@@ -1,0 +1,32 @@
+.skills{
+    margin-left: 30px;
+}
+label{
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.btn{
+    margin: 10px;
+}
+p{
+    color: blueviolet;
+}
+.details {
+    font-size: 200%;
+    display: block;
+}
+.detailstable h3{
+    font-weight: bold;
+    margin-right: 50px;
+}
+.detailstable{
+    margin-top: 20px;
+}
+h3{
+    display: inline-block;
+    margin-right: 300px;
+}
+td{
+    padding-bottom: 20px;
+    vertical-align: top;
+}

@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>
+    Pet Shelter!
+  </h1>
+  <h3>Details about {{ pet['name']}}</h3>
+  <a [routerLink]="['/pets']">Home</a>
+  <table class="detailstable">
+    <tr>
+      <td><h3>Pet Type:</h3></td>
+      <td><span class="details">{{ pet['type']}}</span></td>
+    </tr>
+    <tr>
+      <td><h3>Decription:</h3></td>
+      <td><span class="details">{{ pet['description']}}</span></td>
+    </tr>
+    <tr>
+      <td><h3>Skills:</h3></td>
+      <td><span *ngFor = "let skill of pet['skills']" class="details">{{ skill }}</span></td>
+    </tr>
+    <tr>
+      <td><h3>Likes:</h3></td>
+      <td><span class="details">{{ pet['likes'] }}</span></td>
+    </tr>
+  </table>
+
+  <button [disabled] = "disableswitch" (click) = "newLike(pet['_id'])" class="btn btn-info" type="button" name="like">Likes this pet</button>
+  <button (click) = "adopt(pet['_id'])" class="btn btn-success" type="button" name="adopt">Adopt this pet</button>
+
+</div>

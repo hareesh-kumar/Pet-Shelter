@@ -1,0 +1,45 @@
+<div class="container">
+    <h1>
+      Pet Shelter!
+    </h1>
+  <h3>Know of a pet needing a home?</h3>
+  <p>The pet must have a name</p>
+  <form (submit)='addNewPet()' #mypetform = "ngForm">
+    <label for="name">Pet Name: </label><br>
+    <input required minlength="3" type="text" name="name" [(ngModel)]='pet["name"]' #name = "ngModel">
+    <br>
+    <p *ngIf="errors['name']">{{ errors.name.message}}</p>
+    <div *ngIf="name.invalid && (name.dirty || name.touched)">
+      <p *ngIf="name.errors.required">Pet Name is required</p>
+      <p *ngIf="name.errors.minlength">Pet Name should be atleast 3 characters </p>
+    </div>
+    <label for="type">Pet Type: </label><br>
+    <input required minlength="3" type="text" name="type" [(ngModel)]='pet["type"]'#type = "ngModel">
+    <br>
+    <p *ngIf="errors['type']">{{ errors.type.message}}</p>
+    <div *ngIf = "type.invalid && (type.dirty || type.touched)">
+      <p *ngIf="type.errors.required">Pet Type is required</p>
+      <p *ngIf="type.errors.minlength">Pet Type should be atleast 3 characters </p>
+    </div>
+    <label for="description">Description: </label><br>
+    <input required minlength="3" type="text" name="description" [(ngModel)]='pet["description"]'#description = "ngModel">
+    <br>
+    <p *ngIf="errors['description']">{{ errors.description.message}}</p>
+    <div *ngIf="description.invalid && (description.dirty || description.touched)">
+      <p *ngIf="description.errors.required">Description is required</p>
+      <p *ngIf="description.errors.minlength">Description should be atleast 3 characters </p>
+    </div>
+    <label for="Skills">Skills: </label>
+    <div class="skills">
+      <label for="Skill 1">Skills 1: </label>
+      <input type="text" name="Skill 1" [(ngModel)]='pet["skills"][0]'><br>
+      <label for="Skill 2">Skills 2: </label>
+      <input type="text" name="Skill 2" [(ngModel)]='pet["skills"][1]'><br>
+      <label for="Skill 3">Skills 3: </label>
+      <input type="text" name="Skill 3" [(ngModel)]='pet["skills"][2]'><br>
+    </div>
+    <br>
+    <input [disabled]="mypetform.invalid" class="btn btn-primary" type="submit" name="Add Pet">
+    <button [routerLink]="['/pets']" class="btn btn-secondary" type="button" name="cancel">Cancel</button>
+  </form>
+</div>
