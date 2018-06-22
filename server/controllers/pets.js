@@ -22,7 +22,8 @@ function findOne(req, res) {
         .catch((err) => res.json(err));
 }
 async function addnew(req, res) {
-    let newpet = await Pet.find({'name' : req.body.name }).then((data) => { return data; });
+    req.body.name = req.body.name.toLowerCase();
+    let newpet = await Pet.find({ 'name': req.body.name }).then((data) => { return data; });
     console.log (newpet);
     if (newpet[0]) {
         res.json({errors : { "name" : { "message" : "Name already exists. Please choose a different name."}}});
@@ -33,6 +34,7 @@ async function addnew(req, res) {
     }
 }
 async function findUpdate(req, res) {
+    req.body.name = req.body.name.toLowerCase();
     let newpet = await Pet.find({ 'name': req.body.name }).then((data) => { return data; });
     console.log(newpet);
     if (newpet[0]) {

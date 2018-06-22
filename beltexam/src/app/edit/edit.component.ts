@@ -14,6 +14,13 @@ export class EditComponent implements OnInit {
   constructor(private _petservice: PetService, private _router: Router, private _route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.pet = {
+      name: '',
+      type: '',
+      description: '',
+      skills: []
+    };
+    this.errors = {};
     this._petservice.getbyId(this._route.snapshot.params.id).subscribe( data => {
       if (data['errors']) {
         console.log('error', data);

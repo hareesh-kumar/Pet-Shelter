@@ -14,7 +14,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let pet of pets" class="pets">
-        <td> {{pet.name}} </td>
+        <td> {{pet.name.toTitleCase()}} </td>
         <td> {{pet.type}} </td>
         <td> <button [routerLink]="[pet['_id']]" class="btn btn-secondary">Details</button> <button [routerLink]="[ pet['_id'], 'edit']" class="btn btn-secondary">Edit</button></td>
       </tr>
